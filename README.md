@@ -20,3 +20,8 @@ To run the project:
 1. clone the project into your machine
 2. npm install
 3. npm start
+
+In Real time:
+1. add more tests and cover all components and code
+2. with more requirements, clean up code and structure it in way it can be reused
+3. add more validations depending on user stories
