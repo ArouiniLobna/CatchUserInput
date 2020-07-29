@@ -19,6 +19,7 @@ const GlobalStyle = createGlobalStyle`
     background-color: #f3f4f7;
     min-height: 100%;
     min-width: 100%;
+    position: relative;
   }
 
   p,
@@ -49,6 +50,7 @@ input{
   }
   &:focus ~ label{
     transform: translate(-12px,-23px) scale(0.75);
+    color: #2196f3;
   }
   &:focus ~ label ~ .bar:before{
     width: 100%;
@@ -58,6 +60,7 @@ input{
 
 input[type='date'] + label, .floating-label {
   transform: translate(-12px,-23px) scale(0.75);
+  color: #2196f3;
 }
 label{
   color: rgba(0, 0, 0, 0.6);

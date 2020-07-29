@@ -9,14 +9,12 @@
 import React from 'react';
 import Header from 'components/layouts/atoms/Header';
 import QuickUserEntry from 'containers/QuickUserEntry';
-import { ToastContainer } from 'react-toastify';
 import styled from 'styled-components';
 import GlobalStyle from '../../global-styles';
 import 'react-toastify/dist/ReactToastify.css';
 export default function App() {
   return (
     <div>
-      <ToastContainer autoClose={5000} />
       <Header />
       <StyledAppWrapper>
         <QuickUserEntry />

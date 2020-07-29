@@ -5,12 +5,12 @@
  */
 
 import React, { memo, useState } from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import FormInput from 'components/layouts/atoms/FormInput';
 import styled from 'styled-components';
 import moment from 'moment';
 
-function QuickFormEntry() {
+function QuickFormEntry({ onSubmit, SubmitingUserEntries }) {
   const [user, setUserDetails] = useState({ name: '', age: '', salary: '' });
   const [errors, setErros] = useState([]);
 
@@ -31,7 +31,7 @@ function QuickFormEntry() {
 
   // validations of the form triggers when submit button is clicked
   const handleValidation = () => {
-    // validate that user name exist and should more than 1 character
+    // validate that user name exist
     const errorsCurrent = [];
     if (!user.name || user.name.length === 0) {
       errorsCurrent.push({ Name: 'name', Value: 'Enter your name please!' });
@@ -57,6 +57,7 @@ function QuickFormEntry() {
     const currenterrors = handleValidation();
     if (currenterrors.length === 0) {
       // call parent function to trigger api
+      onSubmit(user);
       setUserDetails({ name: '', age: '', salary: '' });
     }
   };
@@ -81,9 +82,9 @@ function QuickFormEntry() {
         error={checkErrors('name')}
         maxlength={20}
         required
+        disabled={!!SubmitingUserEntries}
       />
 
-      {/* input type number provide build in functionality that allow only numbers entry */}
       <FormInput
         name="salary"
         label="Salary"
@@ -92,10 +93,9 @@ function QuickFormEntry() {
         error={checkErrors('salary')}
         type="number"
         required
+        disabled={!!SubmitingUserEntries}
       />
 
-      {/* date type input provide date entry structure that user should follow */}
-      {/* max value has been set to today to force user to enter valid birth date from today and back */}
       <FormInput
         name="age"
         label="Date Of Birth"
@@ -105,9 +105,8 @@ function QuickFormEntry() {
         type="date"
         max={moment().format('YYYY-MM-DD')} // make sure last date entered is current date
         required
+        disabled={!!SubmitingUserEntries}
       />
-
-      {/* the button will be disabled until all fields have valid values */}
       <button
         type="submit"
         variant="contained"
@@ -119,7 +118,10 @@ function QuickFormEntry() {
   );
 }
 
-QuickFormEntry.propTypes = {};
+QuickFormEntry.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+  SubmitingUserEntries: PropTypes.any,
+};
 
 const StyledForm = styled.form`
   padding: 20px;

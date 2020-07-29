@@ -12,6 +12,23 @@ const selectQuickUserEntryDomain = state =>
  * Other specific selectors
  */
 
+const makeSelectUserDetails = () =>
+  createSelector(
+    selectQuickUserEntryDomain,
+    siteState => siteState.userDetails,
+  );
+
+const makeSelectUserDetailsError = () =>
+  createSelector(
+    selectQuickUserEntryDomain,
+    siteState => siteState.userDetailsError,
+  );
+const makeSelectUserDetailsLoading = () =>
+  createSelector(
+    selectQuickUserEntryDomain,
+    siteState => siteState.userDetailsLoading,
+  );
+
 /**
  * Default selector used by QuickUserEntry
  */
@@ -23,4 +40,9 @@ const makeSelectQuickUserEntry = () =>
   );
 
 export default makeSelectQuickUserEntry;
-export { selectQuickUserEntryDomain };
+export {
+  selectQuickUserEntryDomain,
+  makeSelectUserDetails,
+  makeSelectUserDetailsError,
+  makeSelectUserDetailsLoading,
+};
