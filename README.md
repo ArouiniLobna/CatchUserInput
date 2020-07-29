@@ -6,3 +6,4 @@ ASSEMPTIONS:
 
 
 DEVELOPMENT PROCESS (spent !!):
+1. build connected component that will hanlde th the api call and messages related and get the response as well.

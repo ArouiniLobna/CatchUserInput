@@ -36,8 +36,8 @@ const GlobalStyle = createGlobalStyle`
 input{
   background: none;
  color: #222;
- font-size: 18px;
- padding: 10px 10px 10px 5px;
+ font-size: 14px;
+ padding: 20px 10px 10px 16px;
   display: block;
  width: 100%;
   border: none;
@@ -48,10 +48,7 @@ input{
     outline: none;
   }
   &:focus ~ label{
-    top: -14px;
-    font-size: 12px;
-    color: #2196f3;
-    left: 0;
+    transform: translate(-12px,-23px) scale(0.75);
   }
   &:focus ~ label ~ .bar:before{
     width: 100%;
@@ -60,10 +57,7 @@ input{
 }
 
 input[type='date'] + label, .floating-label {
-  top: -14px;
-  left :0;
-    font-size: 12px;
-    /* color: #2196f3; */
+  transform: translate(-12px,-23px) scale(0.75);
 }
 label{
   color: rgba(0, 0, 0, 0.6);
@@ -76,6 +70,10 @@ label{
   top: 50%;
   transform: translateY(-50%);
   pointer-events: none;
+}
+.required-label{
+  color: rgba(0, 0, 0, 0.54);
+  font-size: 10px;
 }
 .label-error{
   color: #b00020;
