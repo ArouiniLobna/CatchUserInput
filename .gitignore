@@ -1,0 +1,15 @@
+# Don't check auto-generated stuff into git
+coverage
+build
+node_modules
+stats.json
+yarn.lock
+
+# Cruft
+.DS_Store
+npm-debug.log
+.idea
+appConfiguration/.env.local
+
+# ignore the build.zip file used for transferring the build
+build.zip
